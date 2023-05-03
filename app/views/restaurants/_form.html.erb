@@ -1,0 +1,6 @@
+<%= simple_form_for @review do |f| %>
+  <%= f.input :rating %>
+  <%= f.input :content %>
+  <%= f.hidden_field :restaurant_id, value: @restaurant.id %>
+  <%= f.button :submit %>
+<% end %>

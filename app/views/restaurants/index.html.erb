@@ -1,0 +1,8 @@
+<h1> The coolest restaurants ever </h1>
+<div id="restaurants">
+  <% @restaurants.each do |restaurant| %>
+    <p>
+      <%= link_to restaurant.name, restaurant %>
+    </p>
+  <% end %>
+</div>
