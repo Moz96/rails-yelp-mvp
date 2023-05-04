@@ -1,9 +1,18 @@
 <h1> The coolest restaurants ever </h1>
-<div id="restaurants">
-  <% @restaurants.each do |restaurant| %>
-    <p>
-      <%= link_to restaurant.name, restaurant %>
-    </p>
-  <% end %>
+<<div class="container">
+  <div class="row">
+    <% @restaurants.each do |restaurant| %>
+      <div class="col-sm-4">
+        <div class="card mb-4">
+          <img src="https://via.placeholder.com/300x150.png?text=Restaurant+Image" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title"><%= restaurant.name %></h5>
+            <p class="card-text"><%= restaurant.address %></p>
+            <a href="<%= restaurant_path(restaurant) %>" class="btn btn-primary">View Restaurant</a>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
 </div>
 <%= link_to "New restaurant", new_restaurant_path %>
