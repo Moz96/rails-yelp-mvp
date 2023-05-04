@@ -1,26 +1,31 @@
 <p style="color: green"><%= notice %></p>
+<div class="container mt-3">
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title"><%= @restaurant.name %></h5>
+      <p class="card-text"><%= @restaurant.address %></p>
+      <p class="card-text"><%= @restaurant.phone_number %></p>
+      <p class="card-text"><%= @restaurant.category %></p>
+      <%= link_to "Back", restaurants_path, class: "btn btn-secondary" %>
+    </div>
+  </div>
+</div>
 
-<h1><%= @restaurant.name %></h1>
-
-<p>Category: <%= @restaurant.category %></p>
-
-<p>Address: <%= @restaurant.address %></p>
-
-<div id="reviews">
-  <h2>Reviews</h2>
+ <h2>Reviews:</h2>
   <% @restaurant.reviews.each do |review| %>
-    <div class="review">
-      <p>Rating: <%= review.rating %></p>
-      <p>Review: <%= review.content %></p>
+    <div class="card mb-3">
+      <div class="card-body">
+        <p class="card-text"><%= review.content %></p>
+        <p class="card-text"><%= pluralize(review.rating, 'Stars') %></p>
+      </div>
     </div>
   <% end %>
 
-</div>
+  </div>
 
-<div>
-  <%= link_to "Add a review", new_restaurant_review_path(@restaurant) %> |
-  <%= link_to "Back to restaurants", restaurants_path %>
-
-  <%= button_to "Delete this restaurant", @restaurant, method: :delete %>
-
+  <div class="btn-group" style="margin-bottom: 10px">
+   <%= link_to "Add a review", new_restaurant_review_path(@restaurant), class: 'btn btn-primary mx-2' %>
+    <%= link_to "Back to restaurants", restaurants_path, class: 'btn btn-secondary mx-2' %>
+    <%= button_to "Delete this restaurant", @restaurant, method: :delete, class: 'btn btn-danger mx-2'%>
+  </div>
 </div>

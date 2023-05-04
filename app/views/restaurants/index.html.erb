@@ -1,5 +1,5 @@
-<h1> The coolest restaurants ever </h1>
-<<div class="container">
+<h1 class="display-4 text-center my-5"> Restaurant Reviews 4 U</h1>
+<div class="container">
   <div class="row">
     <% @restaurants.each do |restaurant| %>
       <div class="col-sm-4">
@@ -14,5 +14,7 @@
       </div>
     <% end %>
   </div>
+  <div class="button">
+    <%= link_to "New restaurant", new_restaurant_path, class: "btn btn-primary"%>
+  </div>
 </div>
-<%= link_to "New restaurant", new_restaurant_path %>
